@@ -13,7 +13,7 @@ timestamp(秒) = pts * av_q2d(st->time_base)
 这里的st是一个AVStream对象指针
 */
 
-int main()
+int main(int argc, char* argv[])
 {
 	long long t = MMAVTime::GetTime();
 
@@ -29,7 +29,7 @@ int main()
 	player.Play();
 	printf("===========================Play =============================\n");
 	//..wait
-	std::this_thread::sleep_for(std::chrono::seconds(5));
+	std::this_thread::sleep_for(std::chrono::seconds(3));
 	//player.Pause();
 	
 

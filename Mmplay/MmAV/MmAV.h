@@ -74,6 +74,7 @@ public:
 private:
 	int timebaseNum = 0;
 	int timebaseDen = 0;
+	//MMAVFrame *deframe = nullptr;
 };
 class MmAVReaderPrivate;
 class MmAVReader

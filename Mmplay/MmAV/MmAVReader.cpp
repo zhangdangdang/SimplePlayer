@@ -77,11 +77,11 @@ int MmAVReader::GetStream(MMAVStream* avStream, int streamId)
 	if (avStream->imp->codecpar->codec_type == AVMEDIA_TYPE_VIDEO)//解码器参数指向类型
 	//if (imp->formatCtx->streams[streamId]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO)
 	{
-		printf("it is video\n");
+		printf("readcpp it is video\n");
 	}
 	else
 	{
-		printf("it is audio\n");
+		printf("readcpp it is audio\n");
 	}
 	return 0;
 }

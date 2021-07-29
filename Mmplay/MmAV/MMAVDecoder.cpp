@@ -8,6 +8,7 @@ MMAVDecoder::MMAVDecoder()
 {
 	imp = new MMAVDecoderPrivate();
 	imp->codecContext = avcodec_alloc_context3(nullptr);
+	
 }
 MMAVDecoder::~MMAVDecoder()
 {
@@ -20,6 +21,8 @@ MMAVDecoder::~MMAVDecoder()
 		delete imp;
 		imp = nullptr;
 	}
+	
+
 
 }
 int MMAVDecoder::Init(MMAVStream* stream)
@@ -59,12 +62,15 @@ int MMAVDecoder::SendPacket(MmAVPacket* pkt) {
 int MMAVDecoder::RecvFrame(MMAVFrame* frame)
 {
 	int ret = avcodec_receive_frame(imp->codecContext, frame->imp->frame);
+	//frame->VideoPrint();
 	if (!ret)
 	{
 		//将秒级时间戳计算 赋值
 		frame->imp->ptsSec = frame->imp->frame->pts * 1.0 * timebaseNum / timebaseDen;//乘1.0变double
 		//printf("Pts:%11d\n", frame->imp->ptsSec);
 	}
+	
+	
 	return ret;
 }
 

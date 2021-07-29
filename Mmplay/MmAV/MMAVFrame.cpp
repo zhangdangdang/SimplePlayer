@@ -33,9 +33,9 @@ int MMAVFrame::VideoPrint()
 	printf("Pixel Format: %s\n", str);
 	free(str);
 
-	for (int i = 0; i < AV_NUM_DATA_POINTERS; i++)
+	for (int i = 0; i < AV_NUM_DATA_POINTERS; ++i)
 	{
-		printf("VideoLinesize[%d]:%d\n", i,imp->frame->linesize[i]);
+		//printf("VideoLinesize[%d]:%d\n", i,imp->frame->linesize[i]);
 	}
 	return 0;
 }
@@ -115,6 +115,6 @@ long long MMAVFrame::GetPts()
 {
 
 	//printf("ptsSec:%f\n", imp->ptsSec);
-	
+	//在decoder里填充的数据
 	return (long long)(imp->ptsSec*1000);//秒级转化为毫秒
 }

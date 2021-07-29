@@ -13,7 +13,7 @@ public:
 	{
 
 	}
-	~MMQueue()
+	virtual ~MMQueue()
 	{
 		std::lock_guard<std::mutex> lck(mut);
 		while (Size()>0)
@@ -22,7 +22,7 @@ public:
 			//*t = queue.front();
 			queue.pop();
 			//Pop(&t);
-			printf("析构");
+			printf("队列MMQueue析构\n");
 		}
 	}
 	int Push(T* t)

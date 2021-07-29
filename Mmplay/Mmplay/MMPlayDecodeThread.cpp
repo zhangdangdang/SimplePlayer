@@ -71,6 +71,10 @@ void MMPlayDecodeThread::run()
 			}
 			if (type == MMDecoderType::MMDECODER_TYPE_VIDEO) {
 				playerCtr->PushFrameToVideoQueue(frame);
+				//传送给上层给显示用
+				playerCtr->GetframeH = frame->GetH();
+				playerCtr->GetframeW = frame->GetW();
+				//frame->VideoPrint();
 				//Videoframecounts++;
 				//printf("Video Decoder Success:%d\n", Videoframecounts);
 			}

@@ -4,10 +4,12 @@
 cmake_minimum_required (VERSION 3.8)
 include_directories(../)
 include_directories(../3rdpart/ffmpeg/include) #添加库文件实现
+include_directories(../3rdpart/SDL2/include) #添加库文件实现
 
 link_directories(../3rdpart/ffmpeg/lib)
+link_directories(../3rdpart/SDL2/lib/x64)
 # 将源代码添加到此项目的可执行文件。
-add_library (Mmplay "Mmplay.cpp" "Mmplay.h" "MMPlayerReaderThread.cpp" "MMPlayDecodeThread.cpp" "MMPlayCtr.cpp")# 加 add_executable可执行文件
+add_library (Mmplay "Mmplay.cpp" "Mmplay.h" "MMPlayerReaderThread.cpp" "MMPlayDecodeThread.cpp" "MMPlayCtr.cpp" "MMSDL.cpp" )# 加 add_executable可执行文件
 target_link_libraries(Mmplay Mmthread)
 target_link_libraries(Mmplay MmAV)
 
@@ -19,4 +21,7 @@ target_link_libraries(Mmplay avutil)
 target_link_libraries(Mmplay postproc)
 target_link_libraries(Mmplay swresample)
 target_link_libraries(Mmplay swscale)
+
+target_link_libraries(Mmplay SDL2)
+target_link_libraries(Mmplay SDL2main)
 # TODO: 如有需要，请添加测试并安装目标。
